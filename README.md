@@ -2,7 +2,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-## Commands docker'\
+## Commands docker
 
 ```bash
 $ docker build -t api-da-silva .
@@ -10,6 +10,17 @@ $ docker build -t api-da-silva .
 $ docker image ls api-da-silva
 
 $ docker image history api-da-silva
+
+# rm remove o container, p define a porta, -d deixa detached (não trava o console com logs)
+$ docker run --rm -p 3000:3000 -d api-da-silva
+
+$ docker ps
+
+$ docker logs id-do-container
+
+$ curl http://localhost:3000
+
+$ docker stop id-do-container
 ```
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
