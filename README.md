@@ -5,14 +5,14 @@
 ## Commands docker
 
 ```bash
-$ docker build -t api-da-silva .
+$ docker build -t api-da-silva:v1.0 .
 
 $ docker image ls api-da-silva
 
 $ docker image history api-da-silva
 
 # rm remove o container, p define a porta, -d deixa detached (não trava o console com logs)
-$ docker run --rm -p 3000:3000 -d api-da-silva
+$ docker run --rm -p 3000:3000 -d api-da-silva:v1.0
 
 $ docker ps
 
