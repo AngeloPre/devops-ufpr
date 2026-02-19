@@ -21,6 +21,32 @@ $ docker logs id-do-container
 $ curl http://localhost:3000
 
 $ docker stop id-do-container
+
+# comandos de rede:
+$ docker network ls
+
+$ docker network create network-da-silva
+
+#pode usar o nome também - nome do container é definido pelo docker
+$ docker network connect id-da-rede id-da-api
+
+$ docker network inspect network-da-silva
+
+# rodar container com a rede conectada (evita inserir a rede bridge padrão)
+$ docker run --rm --network=network-da-silva -p 3000:3000 -d api-da-silva:v1.0
+```
+
+## possível correção de problema na falta de DNS configurado para o docker
+```bash
+$ sudo mkdir -p /etc/docker
+
+$ sudo nano /etc/docker/daemon.json
+```
+## conteúdo:
+```json
+{
+ "dns": ["8.8.8.8", "8.8.4.4"]
+}
 ```
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
